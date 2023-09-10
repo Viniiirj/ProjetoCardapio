@@ -434,6 +434,7 @@ b {
 .reserva {
     padding-top: 100px;
     padding-bottom: 150px;
+    position: relative;
 }
 
 .card-secondary {
@@ -442,7 +443,12 @@ b {
     padding: 90px;
 }
 
-.card-reserva {
+.pai {
+    position: relative;
+   
+}
+
+.pai .card-reserva {
     height: 320px;
     width: 320px;
     border-radius: 120px;
@@ -450,10 +456,11 @@ b {
     position: absolute;
     right: 0;
     top: -25px;
+    
 
 }
 
-.reserva .img-banner img {
+.pai > .img-banner img {
     width: 100%!important;
 }
 
