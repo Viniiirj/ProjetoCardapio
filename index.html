@@ -477,7 +477,7 @@
                     </div>
                     
                 </div>
-                <div class="row mr-0 ml-0 " id="localEntrega">
+                <div class="row mr-0 ml-0 hidden" id="localEntrega">
                     <div class="col-3">
                         <div class="form-group container-cep">
                             <label>CEP:</label>
@@ -560,8 +560,56 @@
                     </div>
 
                 </div>
-                <div class="row mr-0 ml-0 hidden" id="resumoCarrinho">
-                    
+                <div class="row mr-0 ml-0 " id="resumoCarrinho">
+                    <div class="col-12">
+                        <p class="title-carrinho mt-4">
+                            <b>Itens do pedido:</b>
+                        </p>
+                    </div>
+
+                        <div class="col-12">
+                            <div class="row" id="listaItensResumo">
+
+                                <div class="col-12 item-carrinho resumo">
+                                    <div class="img-produto-resumo">
+                                        <img src="img/cardapio/pizzas/2-lou-malnatis-deep-dish-pizzas.bf0fe065d251a9cca3925b269d443a27.jpg" alt="">
+                                    </div>    
+                                        <div class="dados-produto">
+                                            <p class="title-produto-resumo">
+                                                <b >Nome do produto</b>
+                                            </p>
+                                            <p class="price-produto-resumo">
+                                                <b >R$ 100,00</b>
+                                            </p>
+                                        </div>
+                                        <p class="quantidade-produto-resumo">
+                                            x <b>3</b>
+                                        </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <p class="title-carrinho mt-4">
+                                <b>Local da entrega:</b>
+                            </p>
+                        </div>
+
+                        <div class="col-12 item-carrinho resumo">
+                            <div class="img-map">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <div class="dados-produto">
+                                <p class="texto-endereco">
+                                    <b id="resumo-endereco">Rua Teste, 200, bairo teste</b>
+                                </p>
+                                <p class="cidade-endereco" id="cidadeEndereco">
+                                    Cidade-SP / 14711-00
+                                </p>
+                            </div>
+                        </div>
+
                 </div>
             </div>
         </div>
