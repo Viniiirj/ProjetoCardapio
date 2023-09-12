@@ -20,7 +20,7 @@
 
     <div class="container-mensagens" id="container-mensagens"></div>
 
-    <a class="botao-carrinho hidden">
+    <a class="botao-carrinho hidden" onclick="cardapio.metodos.abrirCarrinho(true)">
         <div class="badge-total-carrinho">0</div>
             <i class="fa fa-shopping-bag"></i>
         
@@ -42,7 +42,7 @@
                         <li class="nav-item"><a class="nav-link" href="#cardapio"><b>Cardapio</b></a></li>
                         <li class="nav-item"><a class="nav-link" href="#depoimentos"><b>Depoimentos</b></a></li>
                     </ul>
-                    <a class="btn btn-white btn-icon">
+                    <a class="btn btn-white btn-icon" onclick="cardapio.metodos.abrirCarrinho(true)">
                         
                         Meu carrinho <span class="icon">
                             <div class="container-total-carrinho badge-total-carrinho hidden">0</div>
@@ -376,7 +376,7 @@
 
         <div class="m-header">
             <div class="container">
-                <a class="btn btn-white btn-sm float-end">
+                <a class="btn btn-white btn-sm float-right" onclick="cardapio.metodos.abrirCarrinho(false)">
                     Fechar
                 </a>
                 <div class="etapas">
@@ -534,10 +534,10 @@
                                 <i class="fas fa-map-marked-alt"></i>
                             </div>
                             <div class="dados-produto">
-                                <p class="texto-endereco">
-                                    <b id="resumo-endereco">Rua Teste, 200, bairo teste</b>
+                                <p class="texto-rightereco">
+                                    <b id="resumo-rightereco">Rua Teste, 200, bairo teste</b>
                                 </p>
-                                <p class="cidade-endereco" id="cidadeEndereco">
+                                <p class="cidade-rightereco" id="cidadeEndereco">
                                     Cidade-SP / 14711-00
                                 </p>
                             </div>
@@ -548,7 +548,7 @@
         </div>
         <div class="m-footer">
             <div class="container">
-                <div class="container-total text-end mb-4">
+                <div class="container-total text-right mb-4">
                     <p class="mb-0">
                         <span>Subtotal:</span>
                         <span id="lblSubTotal">R$ 95,00</span>
@@ -562,17 +562,17 @@
                         <span class="valor-total" id="lblValorTotal"><b>R$ 100,00</b></span>
                     </p>
                 </div>
-                <a class="btn btn-yellow float-end " id="btnEtapaPedido">
+                <a class="btn btn-yellow float-right " id="btnEtapaPedido">
                     Continuar
                 </a>
-                <a class="btn btn-yellow float-end hidden" id="btnEtapaEndereco">
+                <a class="btn btn-yellow float-right hidden" id="btnEtapaEndereco">
                     Revisar pedido
                 </a>
-                <a class="btn btn-yellow float-end hidden" id="btnEtapaResumo">
+                <a class="btn btn-yellow float-right hidden" id="btnEtapaResumo">
                     Enviar pedido
                 </a>
 
-                <a class="btn btn-white float-end mr-3 hidden" id="btnVoltar">
+                <a class="btn btn-white float-right mr-3 hidden" id="btnVoltar">
                     Voltar
                 </a>
             </div>
