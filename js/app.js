@@ -125,6 +125,7 @@ cardapio.metodos = {
     abrirCarrinho: (abrir) => {
         if(abrir) {
             $("#modalCarrinho").removeClass('hidden');
+            cardapio.metodos.carregarEtapa(1)
         } else {
             $("#modalCarrinho").addClass('hidden');
 
@@ -132,7 +133,63 @@ cardapio.metodos = {
 
     },
 
+    // altera os texto e exibe os botões das etapas
+    carregarEtapa: (etapa) => {
+        
+        if(etapa == 1) {
+            $("#lblTituloEtapa").text('Seu carrinho:')
+            $("#itensCarrinhos").removeClass('hidden')
+            $("#localEntrega").addClass('hidden')
+            $("#resumoCarrinho").addClass('hidden')
 
+            $('.etapa').removeClass('active')
+            $('.etapa1').addClass('active')
+
+            $("#btnEtapaPedido").removeClass('hidden')
+            $("#btnEtapaEndereco").addClass('hidden')
+            $("#btnEtapaResumo").addClass('hidden')
+            $("#btnVoltar").addClass('hidden')
+        }
+
+        if(etapa == 2) {
+            $("#lblTituloEtapa").text('Endereço de entrega:')
+            $("#itensCarrinhos").addClass('hidden')
+            $("#localEntrega").removeClass('hidden')
+            $("#resumoCarrinho").addClass('hidden')        
+        
+            $('.etapa').removeClass('active')
+            $('.etapa1').addClass('active')
+            $('.etapa2').addClass('active')
+
+            $("#btnEtapaPedido").addClass('hidden')
+            $("#btnEtapaEndereco").removeClass('hidden')
+            $("#btnEtapaResumo").addClass('hidden')
+            $("#btnVoltar").removeClass('hidden')
+        }
+
+        if(etapa == 3) {
+            $("#lblTituloEtapa").text('Resumo do pedido:')
+            $("#itensCarrinhos").addClass('hidden')
+            $("#localEntrega").addClass('hidden')
+            $("#resumoCarrinho").removeClass('hidden')
+        
+            $('.etapa').removeClass('active')
+            $('.etapa1').addClass('active')
+            $('.etapa2').addClass('active')
+            $('.etapa3').addClass('active')
+
+            $("#btnEtapaPedido").addClass('hidden')
+            $("#btnEtapaEndereco").addClass('hidden')
+            $("#btnEtapaResumo").removeClass('hidden')
+            $("#btnVoltar").removeClass('hidden')        }
+    },
+
+    //Botão de voltar etapa
+    voltarEtapa: () => {
+
+        let etapa = $(".etapa.active").length;
+        cardapio.metodos.carregarEtapa(etapa - 1)
+    },
 
 
 
