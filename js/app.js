@@ -91,15 +91,50 @@ cardapio.metodos = {
                     MEU_CARRINHO[objIndex].qntd = MEU_CARRINHO[objIndex].qntd + qntdAtual;
                 } else {
                     // caso ainda não exista no carrinho, adiciona ele
-
+                    item[0].qntd = qntdAtual;
+                    MEU_CARRINHO.push(item[0])
                 }
-
-                item[0].qntd = qntdAtual;
-                MEU_CARRINHO.push([0])
+                cardapio.metodos.mensagem('Item adicionado ao carrinho', 'green');
+                $(`#qntd-${id}`).text(0)
+                cardapio.metodos.atualizarBadgeTotal();
             }
-            $(`#qntd-${id}`).text(0)
         }
 
+    },
+
+    //Atualiza o badge de todos os botões "Meu Carrinho"
+    atualizarBadgeTotal: () => {
+        var total = 0;
+
+        $.each(MEU_CARRINHO, (i,e) => {
+            total += e.qntd
+        })
+
+        if(total > 0) {
+            $(".botao-carrinho").removeClass('hidden')
+            $(".container-total-carrinho").removeClass('hidden')
+
+        } else {
+            $(".botao-carrinho").addClass('hidden')
+            $(".container-total-carrinho").addClass('hidden')
+        }
+        $(".badge-total-carrinho").html(total)
+    },
+
+    mensagem: (texto, cor = 'red', tempo = 3500) => {
+        let id = Math.floor(Date.now() * Math.random()).toString();
+
+        let msg = `<div id="msg-${id}" class="animated fadeInDown toast ${cor}">${texto}</div>`
+        
+        $('#container-mensagens').append(msg)
+
+        setTimeout(() => {
+            $(`#msg-${id}`).removeClass('fadeInDown');
+            $(`#msg-${id}`).addClass('fadeOutUp');
+            setTimeout(() => {
+                $(`#msg-${id}`).remove();
+            }, 800)
+        }, tempo)
     }
 }
 
