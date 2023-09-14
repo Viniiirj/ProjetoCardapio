@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>Restaurante - Seja bem-vindo</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/fontawesome.css">
     <link rel="stylesheet" href="./css/animate.css">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/responsivo.css">
     <script src="./js/jquery-1.12.4.min.js" defer></script>
     <script src="./js/modernizr-3.5.0.min.js" defer></script>
     <script src="./js/bootstrap.min.js" defer></script>
@@ -29,7 +31,7 @@
 
     <header>
         <div class="container">
-            <nav class="navbar navbar-expand-lg pl-0 pr-0">
+            <nav class="navbar navbar-expand-lg pl-0 pr-0 col-one">
                 <a class="navbar-brand wow fadeIn"><img src="./img/logo.png" width="160" class="img-logo" alt="imgagem logo"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
                     <span class="navbar-toggler-icon">
@@ -55,10 +57,10 @@
         </div>
     </header>
 
-    <section class="banner">
+    <section class="banner ">
         <div class="container">
             <div class="row">
-                <div class="col-6">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 col-one ">
                     <div class="d-flex text-banner">
                         <h1 class="wow fadeInLeft"><b>Escolha sua comida <b class="color-primary">favorita.</b></b></h1>
                         <p class="wow fadeInLeft delay-02s">Aproveite nosso cardápio ! Escolha o que desejar e receba em sua casa de forma rápida e segura.</p>
@@ -84,7 +86,7 @@
                         <i class="fab fa-whatsapp"></i>
                     </a>
                 </div>
-                <div class="col-6">
+                <div class="col-6 no-mobile">
                     <div class="card-banner wow fadeIn delay-02s"></div>
                 <div class="d-flex img-banner wow fadeInRight delay-05s">
                     <img src="./img/burguer.png" alt="hamburguer">
@@ -109,13 +111,13 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-12 text-center mb-5 wow fadeIn delay-02s">
+                <div class="col-12 text-center col-one mb-5 wow fadeIn delay-02s">
                     <span class="hint-title"><b>Serviços</b></span>
                     <h1 class="title">
                         <b>Como são nossos serviços?</b>
                     </h1>
                 </div>
-                <div class="col-4 mb-5">
+                <div class="col-12 col-lg-4 col-md-4 col-one col-sm-12 mb-5">
                     <div class="card-icon text-center wow fadeInUp delay-02s">
                         <img src="./img/icone-pedido.svg" width="150" alt="">
                         <div class="card-text text-center mt-3">
@@ -124,7 +126,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4 mb-5">
+                <div class="col-12 col-lg-4 col-md-4 col-one col-sm-12 mb-5">
                     <div class="card-icon text-center wow fadeInUp delay-03s">
                         <img src="./img/icone-delivery.svg" width="250" alt="">
                         <div class="card-text text-center mt-3">
@@ -133,7 +135,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4 mb-5">
+                <div class="col-12 col-lg-4 col-md-4 col-one col-sm-12 mb-5">
                     <div class="card-icon text-center wow fadeInUp delay-04s">
                         <img src="./img/icone-qualidade.svg" width="250" alt="">
                         <div class="card-text text-center mt-3">
@@ -153,13 +155,13 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-12 text-center mb-5 wow fadeIn delay-03s">
+                <div class="col-12 text-center col-one mb-5 wow fadeIn delay-03s">
                     <span class="hint-title"><b>Cardápio</b></span>
                     <h1 class="title">
                         <b>Conheça o nosso cardápio</b>
                     </h1>
                 </div>
-            <div class="col-12 container-menu">
+            <div class="col-12 col-one container-menu">
                 <a class="btn btn-white btn-sm mr-3 active wow fadeInDown delay-02s" id="menu-burgers" onclick="cardapio.metodos.ItensCardapio('burgers')">
                     <i class="fas fa-hamburger"></i>&nbsp;Burgers
                 </a>
@@ -180,14 +182,14 @@
                 </a>
             </div>
 
-            <div class="col-12">
+            <div class="col-12 col-one">
                 <div class="row" id="itensCardapio">
                     
 
                 </div>
             </div>
 
-                <div class="col-12 text-center wow fadeInUp delay-04s">
+                <div class="col-12 col-one text-center wow fadeInUp delay-04s">
                     <a id="btnVerMais" class="btn btn-white btn-sm" onclick="cardapio.metodos.verMais()">
                         Ver mais
                     </a>
@@ -203,14 +205,14 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-5 text-center">
+                <div class="col-5 no-mobile text-center">
                     <div class="card-depoimentos wow fadeIn delay-02s"></div>
                     <div class="d-flex img-banner wow fadeInLeft delay-05s">
                         <img src="img/pizzas.png" alt="Imagem com 2 pizzas">
                     </div>
                 </div>
 
-                <div class="col-7 wow fadeInDown delay-02s">
+                <div class="col-lg-7 col-md-7 col-12 col-sm-12 col-one wow fadeInDown delay-02s">
                     <span class="hint-title wow fadeIn"><b>Depoimentos</b></span>
                     <h1 class="title wow fadeInDown delay-04s">
                         <b>O que dizem sobre nóis?</b>
@@ -317,10 +319,10 @@
     <section class="reserva" id="reservas">
         <div class="container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 col-one">
                     <div class="card-secondary wow fadeIn delay-03s">
                         <div class="row">
-                            <div class="col-7">
+                            <div class="col-lg-7 col-md-7 col-12 col-sm-12">
                                 <span class="hint-title"><b>Reservas</b></span>
                                 <h1 class="title">
                                     <b>Quer reservar um horário?</b>
@@ -334,7 +336,7 @@
                                     Fazer reserva
                                 </a>
                             </div>
-                            <div class="col-5 pai">
+                            <div class="col-5 pai no-mobile">
                                 <div class="card-reserva"></div>
                                 <div class="d-flex img-banner wow fadeInDown delay-05s">
                                     <img src="img/icone-reserva.svg" alt="">
@@ -350,15 +352,15 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-3 container-logo-footer">
+                <div class="col-lg-3 col-12 col-md-3 col-sm-12 container-logo-footer ">
                     <img class="logo-footer wow fadeInDown delay-04s" src="img/logo.png" alt="">
                 </div>
-                <div class="col-6 container-texto-footer">
+                <div class="col-lg-6 col-12 col-md-6 col-sm-12 container-texto-footer ">
                     <p class="mb-0">
                         <b>Menu On-line</b> &copy; Todos os direitos reservados
                     </p>
                 </div>
-                <div class="col-3 container-redes-footer">
+                <div class="col-lg-3 col-12 col-md-3 col-sm-12 container-redes-footer ">
                     <a class="btn btn-sm btn-white btn-social mr-3">
                         <i class="fab fa-instagram"></i>
                     </a>
@@ -399,7 +401,7 @@
                     
                 </div>
                 <div class="row mr-0 ml-0 hidden animated fadeIn" id="localEntrega">
-                    <div class="col-3">
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-12">
                         <div class="form-group container-cep">
                             <label>CEP:</label>
                             <input type="text" id="txtCEP" class="form-control" >
@@ -407,44 +409,44 @@
                         </div>
                     </div>
 
-                    <div class="col-9"></div>
+                    <div class="col-9 no-mobile"></div>
 
-                    <div class="col-6">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="form-group">
                             <label>Endereço:</label>
                             <input type="text" id="txtEndereco" class="form-control">
                         </div>
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-12">
                         <div class="form-group">
                             <label>Bairro:</label>
                             <input type="text" id="txtBairro" class="form-control">
                         </div>
                     </div>
 
-                    <div class="col-2">
+                    <div class="col-lg-2 col-md-2 col-sm-12 col-12">
                         <div class="form-group">
                             <label>Número:</label>
                             <input type="text" id="txtNumero" class="form-control">
                         </div>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="form-group">
                             <label>Cidade:</label>
                             <input type="text" id="txtCidade" class="form-control">
                         </div>
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-12">
                         <div class="form-group">
                             <label>Complemento:</label>
                             <input type="text" id="txtComplemento" class="form-control">
                         </div>
                     </div>
 
-                    <div class="col-2">
+                    <div class="col-lg-2 col-md-2 col-sm-12 col-12">
                         <div class="form-group">
                             <label>UF:</label>
                             <select id="ddlUf" class="form-control">
@@ -488,7 +490,7 @@
                         </p>
                     </div>
 
-                        <div class="col-12">
+                        <div class="col-12 col-one">
                             <div class="row" id="listaItensResumo">
 
                                

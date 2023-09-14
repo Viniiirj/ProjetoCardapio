@@ -532,7 +532,7 @@ cardapio.metodos = {
 cardapio.templates = {
 
     item: `
-        <div class="col-3 mb-5 ">
+        <div class="col-12 col-lg-3 col-md-3 col-sm-6  mb-5 ">
             <div class="card card-item animated fadeInUp delay-02s" id="\${id}">
                 <div class="img-produto">
                     <img src="\${img}" alt="">
@@ -554,7 +554,7 @@ cardapio.templates = {
     `,
 
     itemCarrinho: `
-        <div class="col-12 item-carrinho ">
+        <div class="col-12  item-carrinho ">
             <div class="img-produto">
                 <img src="\${img}" alt="">
             </div>
@@ -566,7 +566,7 @@ cardapio.templates = {
             <span class="btn-menos" onclick="cardapio.metodos.diminuirQuantidadeCarrinho('\${id}')"><i class="fas fa-minus"></i></span>
             <span class="add-numero-itens" id='qntd-carrinho-\${id}'>\${qntd}</span>
             <span class="btn-mais" onclick="cardapio.metodos.aumentarQuantidadeCarrinho('\${id}')"><i class="fas fa-plus"></i></span>
-                <span class="btn btn-remove" onclick="cardapio.metodos.removerItemCarrinho('\${id}')"><i class="fa fa-times"></i></span>
+                <span class="btn btn-remove no-mobile" onclick="cardapio.metodos.removerItemCarrinho('\${id}')"><i class="fa fa-times"></i></span>
             </div>
         </div>`,
 
