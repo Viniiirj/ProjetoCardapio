@@ -7,11 +7,17 @@ var MEU_CARRINHO = [];
 var VALOR_CARRINHO = 0;
 var VALOR_ENTREGA = 5;
 
-var MEU_ENDEREÇO = null;
+var CELULAR_EMPRESA = '5521996469616'
+
+var MEU_ENDERECO = null;
 
 cardapio.eventos = {
     init: () => {
     cardapio.metodos.ItensCardapio();
+    cardapio.metodos.carregarBotaoReserva();
+    cardapio.metodos.carregarBotaoLigar();
+    cardapio.metodos.carregarBotaoWhatsapp();
+    
 }
 }
 
@@ -317,7 +323,7 @@ cardapio.metodos = {
         // API ViaCEP
         buscarCep: () => {
             // cria a variavel com o valor do cep
-            var cep = $("#txtCEP").val().trim().replace(/\D/g, '')
+            var cep = $("#txtCEP").val().trim().replace(/\D/g, '');
 
             // verifica se o cep possui valor informado
             if(cep != ""){
@@ -327,7 +333,7 @@ cardapio.metodos = {
 
                 if(validaCep.test(cep)) {
 
-                    $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", (dados) => {
+                    $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
                         if(!("erro" in dados)) {
 
                             //atualizar os campos com os valores retornados
@@ -395,7 +401,7 @@ cardapio.metodos = {
                 $("#txtNumero").focus()
                 return
             }
-            MEU_ENDEREÇO = {
+            MEU_ENDERECO = {
                 cep: cep,
                 endereco: endereco,
                 bairro: bairro,
@@ -424,8 +430,80 @@ cardapio.metodos = {
             
             })
 
-            $("#resumoEndereco").html(`${MEU_ENDEREÇO.endereco}, ${MEU_ENDEREÇO.numero}, ${MEU_ENDEREÇO.bairro}`)
-            $("#cidadeEndereco").html(`${MEU_ENDEREÇO.cidade}-${MEU_ENDEREÇO.uf}/${MEU_ENDEREÇO.cep} ${MEU_ENDEREÇO.complemento}`)
+            $("#resumoEndereco").html(`${MEU_ENDERECO.endereco}, ${MEU_ENDERECO.numero}, ${MEU_ENDERECO.bairro}`)
+            $("#cidadeEndereco").html(`${MEU_ENDERECO.cidade}-${MEU_ENDERECO.uf}/${MEU_ENDERECO.cep} ${MEU_ENDERECO.complemento}`)
+
+
+            cardapio.metodos.finalizarPedido();
+        },
+
+        // Atualualiza o link do whatsapp
+        finalizarPedido: () => {
+            
+            if(MEU_CARRINHO.length > 0 && MEU_ENDERECO != null) {
+                
+                
+                var texto = `Olá gostaria de fazer um pedido:`;
+                texto += `\n*Itens do pedido:*\n\n${itens}`;
+                texto += `\n*Endereço de entrega:*`;
+                texto += `\n${MEU_ENDERECO.endereco}, ${MEU_ENDERECO.numero}, ${MEU_ENDERECO.bairro}`
+                texto += `\n${MEU_ENDERECO.cidade}-${MEU_ENDERECO.uf}/${MEU_ENDERECO.cep} ${MEU_ENDERECO.complemento}`
+                texto += `\n\n*Total (com entrega): R$ ${(VALOR_CARRINHO + VALOR_ENTREGA).toFixed(2).replace('.',',')}*`;
+                
+                var itens = '';
+                
+                $.each(MEU_CARRINHO, (i,e) => {
+                    itens += `*${e.qntd}x* ${e.name} ....... R$ ${e.price.toFixed(2).replace('.',',')} \n`
+                    
+                    if((i + 1) == MEU_CARRINHO.length) {
+                        
+                        texto = texto.replace(/\${itens}/g, itens);
+                        
+                        //converte a URL
+                        let encode = encodeURI(texto);
+                        let Url = `https://wa.me/${CELULAR_EMPRESA}?text=${encode}`;
+                        
+                        $('#btnEtapaResumo').attr('href', Url);
+                        
+                    }
+                })
+            }
+        },
+
+        // carrega o link do botão reserva
+        carregarBotaoReserva: () => {
+
+            var texto = 'Olá! gostaria de fazer uma *reserva*';
+
+            let encode = encodeURI(texto);
+            let Url = `https://wa.me/${CELULAR_EMPRESA}?text=${encode}`;
+            
+            $('#btnReserva').attr('href', Url);
+        },
+
+        //carrega o botão ligar 
+        carregarBotaoLigar: () => {
+
+            $("#btnLigar").attr('href', `tel:${CELULAR_EMPRESA}`)
+        },
+
+        carregarBotaoWhatsapp: () => {
+
+            $("#zap").attr('href', `https://wa.me/${CELULAR_EMPRESA}`)
+        },
+
+        //abre o depoimento
+        abrirDepoimento: (depoimento) => {
+            $("#depoimento-1").addClass('hidden')
+            $("#depoimento-2").addClass('hidden')
+            $("#depoimento-3").addClass('hidden')
+
+            $("#btnDepoimento-1").removeClass('active')
+            $("#btnDepoimento-2").removeClass('active')
+            $("#btnDepoimento-3").removeClass('active')
+
+            $(`#depoimento-${depoimento}`).removeClass('hidden')
+            $(`#btnDepoimento-${depoimento}`).addClass('active')
 
 
         },
@@ -454,8 +532,8 @@ cardapio.metodos = {
 cardapio.templates = {
 
     item: `
-        <div class="col-3 mb-5">
-            <div class="card card-item" id="\${id}">
+        <div class="col-3 mb-5 ">
+            <div class="card card-item animated fadeInUp delay-02s" id="\${id}">
                 <div class="img-produto">
                     <img src="\${img}" alt="">
                     <p class="title-produto text-center mt-4">
