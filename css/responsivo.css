@@ -99,6 +99,13 @@
         height: 30px!important;
         width: 100%;
         text-align: left!important;
+        
+    }
+
+    .card-item > .title-produto{
+        text-overflow: ellipsis!important;
+        white-space: nowrap!important;
+        overflow: hidden;
     }
 
     .price-produto{
